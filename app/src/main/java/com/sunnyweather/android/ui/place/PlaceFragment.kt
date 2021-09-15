@@ -30,7 +30,7 @@ class PlaceFragment : Fragment() {
     //返回函数最后一行
 
     val viewModel by lazy { activity?.let { ViewModelProvider(it).get(PlaceViewModel::class.java) } }
-    private lateinit var adapter: PlaceAdapter
+    private lateinit var adapter: TestPlaceAdapter
     private lateinit var binding: FragmentPlaceBinding
     private var key = 0
     override fun onCreateView(
@@ -67,7 +67,7 @@ class PlaceFragment : Fragment() {
         val layoutManger = LinearLayoutManager(activity)
         binding.recyclerView.layoutManager = layoutManger
         //不推荐
-        adapter = PlaceAdapter(this, viewModel!!.placeList)
+        adapter = TestPlaceAdapter(R.layout.place_item,this, viewModel!!.placeList)
         binding.recyclerView.adapter = adapter
         binding.searchPlaceEdit.addTextChangedListener { text: Editable? ->
             val content = text.toString()

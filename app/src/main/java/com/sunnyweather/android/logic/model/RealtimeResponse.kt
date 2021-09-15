@@ -9,6 +9,7 @@ import com.google.gson.annotations.SerializedName
 
 data class RealtimeResponse(val status:String,val result:Result){
     data class Result(val realtime:Realtime)//最外层封装
+    //json解析不规范，用注解
     data class Realtime(val skycon:String,val temperature:Float
     ,@SerializedName("air_quality")val airQuality:AirQuality)
     data class AirQuality(val aqi:AQI)
